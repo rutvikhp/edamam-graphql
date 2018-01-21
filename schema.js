@@ -3,16 +3,16 @@ const axios = require('axios');
 const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLInt,
+  GraphQLFloat,
   GraphQLSchema,
-  GraphQLList,
+  GraphQLList
 } = require('graphql');
 
 const Ingredient = new GraphQLObjectType({
   name: 'Ingredient',
   fields: () => ({
     text: {type: GraphQLString},
-    weight: {type: GraphQLInt},
+    weight: {type: GraphQLFloat},
   })
 });
 
@@ -23,7 +23,7 @@ const Recipe = new GraphQLObjectType({
     url: {type: GraphQLString},
     label: {type: GraphQLString},
     image: {type: GraphQLString},
-    calories: {type: GraphQLInt},
+    calories: {type: GraphQLFloat},
     ingredientLines: {type: new GraphQLList(GraphQLString)},
     ingredients: {type: new GraphQLList(Ingredient)}
   })
